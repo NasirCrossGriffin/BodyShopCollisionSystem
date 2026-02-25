@@ -1,0 +1,1175 @@
+@media (orientation: landscape) { 
+    .IngestionPage {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        left: 0;
+        top : 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(32, 32, 32);
+    }
+
+    .NavButton {
+        position: fixed;
+        background: linear-gradient(to bottom, red 0%, darkred 100%);
+        color : white;
+        width: 8vw;
+        font-size: 1.2vw;
+    }
+
+    .Continue {
+        top : 2vw;
+        right: 2vw;
+    }
+
+    .Back {
+        top : 2vw;
+        left: 2vw;
+    }
+
+    .Logo {
+        position: absolute;
+        transform: translateX(-50%);
+        left : 50%;
+        top: 0;
+        height : 15%;
+        pointer-events: none;
+    }
+
+    .Logo img {
+        object-fit: contain;
+        height: 100%;
+        width: auto;
+    }
+
+    /* 
+        ##############################
+        ##############################
+        Customer Information
+        ##############################
+        ##############################
+    */
+
+    .CustomerInformation, 
+    .VehicleInformation, 
+    .InsuranceInformation, 
+    .ConfirmationPage, 
+    .PhotoUploadPage, 
+    .DamageDescriptionPage,
+    .SelectAppointmentDate {
+        position: relative;
+        width: 100%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        overflow-y: hidden;
+        bottom : 0;
+    }
+
+    .CustomerInformation h1, 
+    .VehicleInformation h1, 
+    .InsuranceInformation h1, 
+    .ConfirmationPage h1, 
+    .DamageDescriptionContainer h1,
+    .PhotoUploadContainer h1,
+    .SelectAppointmentDateContainer h1 {
+        font-family: 'Montserrat';
+        color: white;
+        font-size: 2.5vw;
+    }
+
+    .CustomerInformation h2, 
+    .VehicleInformation h2, 
+    .VehicleMake h2, 
+    .VehicleModel h2, 
+    .InsuranceProvider h2, 
+    .ConfirmationPage h2 {
+        font-family: 'Montserrat';
+        color: white;
+        font-size: 2vw;
+    }
+
+    .NameFields, .ContactFields {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 70%;
+        height: 40%;
+    }
+
+    .NameField, .ContactField {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 45%;
+        height: 45%;
+    }
+
+    .NameField input, .ContactField input {
+        width : 100%;
+        height : 100%;
+        font-size: 1.1vw;
+        color: white;
+        background-color: rgb(64, 64, 64);
+        border-color: rgb(255, 255, 255);
+        border-style: solid;
+    }
+
+    .NameField label, .ContactField label{
+        width: 100%;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: 1.4vw;
+        color: white;
+    }
+
+    .CustomerInformation button {
+        margin-bottom: 2vw;
+        background: linear-gradient(to bottom, red 0%, darkred 100%);
+        color: white;
+        width: 7vw;
+        font-size: 1.2vw;
+    }
+
+    /* 
+        ##############################
+        ##############################
+        Vehicle Information
+        ##############################
+        ##############################
+    */
+
+    .VehicleMake, .VehicleModel, .InsuranceProvider {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 80%;
+    }
+
+    .VehicleMake h2, .VehicleModel h2 {
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+    }
+
+    .SwitchButtons {
+        height: 8%;
+        width: 40%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .SwitchButton {
+        height: 100%;
+        width: 12vw;
+        font-size: 1vw;
+        color: white;
+        background: linear-gradient(to bottom, red 0%, darkred 100%);
+    }
+
+    .ManualEntry {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        height: 10%;
+    }
+
+    .ManualEntry input {
+        width: 80%;
+        height: 90%;
+        font-size: 1.1vw;
+        color: white;
+        background-color: rgb(64, 64, 64);
+        border-color: rgb(255, 255, 255);
+        border-style: solid;
+    }
+
+    .ManualEntry button {
+        width: 15%;
+        height: 100%;
+        font-size: 1vw;
+        color: white;
+        background: linear-gradient(to bottom, red 0%, darkred 100%);
+    }
+
+    .MakeGridContainer, .InsuranceGridContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 60%;
+        overflow-y: scroll;
+        scrollbar-color: gray;
+        scrollbar-track-color: transparent;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        margin-bottom: 3vw;
+    }
+
+    .MakeGridContainer::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    .MakeGridContainer::-webkit-scrollbar-track {
+    background: transparent;
+    }
+
+    .MakeGridContainer::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 8px;
+    }
+
+
+    .MakeGrid, .InsuranceGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        place-items: center;
+        row-gap: 5vw;
+        column-gap: 5vw;
+        margin-bottom: 2vw;
+    }
+
+    .MakeButton {
+        width: 10vw;
+        height: 10vw;
+        background: linear-gradient(to bottom, rgb(64, 64, 64), rgb(76, 76, 76) 100%);
+        margin: 0 0 0 0;
+        padding: 2vw 2vw 2vw 2vw;
+        border-radius: 25px;
+        border-color: transparent;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    .MakeButton div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .MakeButton div img {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .VehicleModel {
+        width: 70%;
+    }
+
+    .VehicleInformationFields {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 90%;
+    }
+
+    .VehicleInformationField {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 18%;
+        width: 50%;
+    }
+
+    .VehicleInformationField input {
+        height: 100%;
+        width: 80%;
+    }
+
+    .VehicleInformationField label {
+        font-family: 'Montserrat';
+        font-size: 1.2vw;
+        width: 80%;
+    }
+
+    /* 
+        ##############################
+        ##############################
+        Damage Description
+        ##############################
+        ##############################
+    */
+
+    .DamageDescriptionContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .DamageDescriptionContainer textarea{
+        width: 70%;
+        height: 70%;
+        resize: none;
+        background-color: rgb(64, 64, 64);
+        border-color: white;
+        resize: none;
+        font-family: 'Montserrat';
+        font-size: 1.4vw;
+    }
+    /* 
+        ##############################
+        ##############################
+        Photo Upload 
+        ##############################
+        ##############################
+    */
+
+    .PhotoUploadContainer {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        top : 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 90%;
+        width: 100%;
+    }
+
+    .UploadButton {
+        width: 20%;
+        height: 20%;
+        background-color: rgb(64, 64, 64);
+        border-color: white;
+        border-width: 5px;
+        border-radius: 20px;
+    }
+
+    .UploadButton img {
+        height: 90%;
+        object-fit: contain;
+    }
+
+    .UploadedPhotosContainer {
+        display: flex;
+        margin-top: 2vw;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 80%;
+        height: 40%;
+        overflow-y: scroll;
+    }
+
+    .UploadedPhotosGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        place-items: center;
+        width: 100%;
+        row-gap: 16px;
+        column-gap: 16px;
+    }
+
+    .UploadedPhotosContainer::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    .UploadedPhotosContainer::-webkit-scrollbar-track {
+    background: transparent;
+    }
+
+    .UploadedPhotosContainer::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 8px;
+    }
+
+    .UploadedPhoto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 15vw;
+        height: 15vw;
+    }
+
+    .UploadedPhoto img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    /* 
+        ##############################
+        ##############################
+        Insurance Information
+        ##############################
+        ##############################
+    */
+
+    .InsuranceFields {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 40%;
+    }
+
+    .InsuranceField input {
+        height: 35%;
+        width: 80%;
+        font-size: 1.4vw;
+    }
+
+    .InsuranceField label {
+        font-family: 'Montserrat';
+        font-size: 1.2vw;
+        width: 80%;
+    }
+
+    .InsuranceField {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 45%;
+        height: 100%;
+    }
+
+    .InsuranceProvider {
+        width : 80%
+    }
+
+    .InsuranceGrid {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .InsuranceGridContainer {
+        height: 70%;
+        overflow-y: hidden;
+    }
+
+    .SubmitInsurance {
+        background: linear-gradient(to bottom, red 0%, darkred 100%);
+        color: white;
+        width: 7vw;
+        font-size: 1.2vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+    }
+
+    /* 
+        ##############################
+        ##############################
+        Appointment Date Selector
+        ##############################
+        ##############################
+    */
+
+    .SelectAppointmentDateContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 80%;
+        width: 100%;
+    }
+
+    /* 
+        ##############################
+        ##############################
+        Review And Confirm
+        ##############################
+        ##############################
+    */
+
+    .Review {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+        place-items: center;
+        width: 70%;
+        height: 70%;
+    }
+
+    .ReviewItem {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 20vw;
+        font-size: 1.3vw;
+        text-align: center;
+    }
+
+    .Validator {
+        color: red;
+    }
+
+    .ConfirmButton {
+        background: linear-gradient(to bottom, red 0%, darkred 100%);
+        color: white;
+        width: 8vw;
+        font-size: 1.2vw;
+        margin-top: .5vw;
+        margin-bottom: .5vw;
+    }
+    }
+    /* Scroll container with bottom fade */
+    .fade-scroll {
+    position: relative;
+    overflow-y: auto;
+
+    /* how much space you want for the fade */
+    --fade-height: 48px;
+
+    /* Fade only at the bottom */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) calc(100% - var(--fade-height)),
+        rgba(0,0,0,0) 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) calc(100% - var(--fade-height)),
+        rgba(0,0,0,0) 100%
+    );
+    }
+
+    .fade-in-slide-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInSlideUp 0.5s ease forwards;
+    }
+
+
+
+    @keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (orientation: portrait) { 
+.IngestionPage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    left: 0;
+    top : 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(32, 32, 32);
+}
+
+.NavButton {
+    position: fixed;
+    background: linear-gradient(to bottom, red 0%, darkred 100%);
+    color : white;
+    width: 20vw;
+    height: 8vw;
+    font-size:3vw;
+}
+
+.Continue {
+    top : 2vw;
+    right: 2vw;
+}
+
+.Back {
+    top : 2vw;
+    left: 2vw;
+}
+
+.Logo {
+    position: absolute;
+    transform: translateX(-50%);
+    left : 50%;
+    top: 0;
+    height : 5%;
+    pointer-events: none;
+}
+
+.Logo img {
+    object-fit: contain;
+    height: 100%;
+    width: auto;
+}
+
+/* 
+    ##############################
+    ##############################
+    Customer Information
+    ##############################
+    ##############################
+*/
+
+.CustomerInformation, 
+.VehicleInformation, 
+.InsuranceInformation, 
+.ConfirmationPage, 
+.PhotoUploadPage, 
+.DamageDescriptionPage,
+.SelectAppointmentDate {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow-y: hidden;
+    bottom : 0;
+}
+
+.CustomerInformation h1, 
+.VehicleInformation h1, 
+.InsuranceInformation h1, 
+.ConfirmationPage h1, 
+.DamageDescriptionContainer h1,
+.PhotoUploadContainer h1,
+.SelectAppointmentDateContainer h1 {
+    font-family: 'Montserrat';
+    color: white;
+    font-size: 5vw;
+    text-align: center;
+}
+
+.CustomerInformation h2, 
+.VehicleInformation h2, 
+.VehicleMake h2, 
+.VehicleModel h2, 
+.InsuranceProvider h2, 
+.ConfirmationPage h2 {
+    font-family: 'Montserrat';
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+}
+
+.NameFields, .ContactFields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 40%;
+}
+
+.NameField, .ContactField {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    margin-top: 10vw;
+}
+
+.NameField input, .ContactField input {
+    width : 100%;
+    height : 100%;
+    color: white;
+    background-color: rgb(64, 64, 64);
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    font-size: 3.5vw;
+}
+
+.NameField label, .ContactField label{
+    width: 100%;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 3.5vw;
+    color: white;
+}
+
+@media (min-width : 500px) { 
+    .NameField label, .ContactField label{
+        font-family: 'Montserrat';
+        font-size: 2vw;
+    }
+
+    .NameField input, .ContactField input {
+        font-size: 2vw;
+    }
+}
+
+.CustomerInformation button {
+    margin-bottom: 2vw;
+    background: linear-gradient(to bottom, red 0%, darkred 100%);
+    color: white;
+    width: 7vw;
+    font-size: 1.2vw;
+}
+
+/* 
+    ##############################
+    ##############################
+    Vehicle Information
+    ##############################
+    ##############################
+*/
+
+.VehicleMake, .VehicleModel, .InsuranceProvider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.VehicleMake h2, .VehicleModel h2 {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+.SwitchButtons {
+    height: 4%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.SwitchButton {
+    height: 100%;
+    width: 30vw;
+    font-size: 3vw;
+    color: white;
+    background: linear-gradient(to bottom, red 0%, darkred 100%);
+}
+
+@media (min-width : 500px) { 
+    .SwitchButton {
+        font-size : 2vw;
+    }
+}
+
+.ManualEntry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 5%;
+}
+
+.ManualEntry input {
+    width: 80%;
+    height: 90%;
+    font-size: 3vw;
+    color: white;
+    background-color: rgb(64, 64, 64);
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+}
+
+.ManualEntry button {
+    width: 15%;
+    height: 100%;
+    font-size: 1vw;
+    color: white;
+    background: linear-gradient(to bottom, red 0%, darkred 100%);
+}
+
+.MakeGridContainer, .InsuranceGridContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 60%;
+    overflow-y: scroll;
+    scrollbar-color: gray;
+    scrollbar-track-color: transparent;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    margin-bottom: 3vw;
+}
+
+.MakeGridContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.MakeGridContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.MakeGridContainer::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 8px;
+}
+
+
+.MakeGrid, .InsuranceGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    row-gap: 5vw;
+    column-gap: 5vw;
+    margin-bottom: 2vw;
+}
+
+.MakeButton {
+    width: 20vw;
+    height: 20vw;
+    background: linear-gradient(to bottom, rgb(64, 64, 64), rgb(76, 76, 76) 100%);
+    margin: 0 0 0 0;
+    padding: 2vw 2vw 2vw 2vw;
+    border-radius: 25px;
+    border-color: transparent;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.MakeButton div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.MakeButton div img {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.VehicleModel {
+    width: 70%;
+}
+
+.VehicleInformationFields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 90%;
+}
+
+.VehicleInformationField {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 12%;
+    width: 100%;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+}
+
+.VehicleInformationField input {
+    height: 100%;
+    width: 100%;
+}
+
+.VehicleInformationField label {
+    font-family: 'Montserrat';
+    font-size: 4vw;
+    width: 100%;
+}
+
+@media (min-width : 500px) { 
+    .VehicleInformationField label {
+        font-family: 'Montserrat';
+        font-size: 2vw;
+    }
+
+    .VehicleInformationField input {
+        font-size: 2vw;
+    }
+}
+
+/* 
+    ##############################
+    ##############################
+    Damage Description
+    ##############################
+    ##############################
+*/
+
+.DamageDescriptionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+
+.DamageDescriptionContainer textarea{
+    width: 70%;
+    height: 70%;
+    resize: none;
+    background-color: rgb(64, 64, 64);
+    border-color: white;
+    resize: none;
+    font-family: 'Montserrat';
+    font-size: 3vw;
+}
+/* 
+    ##############################
+    ##############################
+    Photo Upload 
+    ##############################
+    ##############################
+*/
+
+.PhotoUploadContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    top : 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 90%;
+    width: 100%;
+}
+
+.UploadButton {
+    width: 40%;
+    height: 15%;
+    background-color: rgb(64, 64, 64);
+    border-color: white;
+    border-width: 5px;
+    border-radius: 20px;
+}
+
+.UploadButton img {
+    height: 90%;
+    object-fit: contain;
+}
+
+.UploadedPhotosContainer {
+    display: flex;
+    margin-top: 2vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80%;
+    height: 70%;
+    overflow-y: scroll;
+}
+
+.UploadedPhotosGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    width: 100%;
+    row-gap: 16px;
+    column-gap: 16px;
+}
+
+.UploadedPhotosContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.UploadedPhotosContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.UploadedPhotosContainer::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 8px;
+}
+
+.UploadedPhoto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35vw;
+    height: 35vw;
+}
+
+.UploadedPhoto img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 
+    ##############################
+    ##############################
+    Insurance Information
+    ##############################
+    ##############################
+*/
+
+.InsuranceFields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40%;
+}
+
+.InsuranceField input {
+    height: 30%;
+    width: 100%;
+    font-size: 3vw;
+}
+
+.InsuranceField label {
+    font-family: 'Montserrat';
+    font-size: 3vw;
+    width: 80%;
+    text-align: center;
+}
+
+@media (min-width : 500px) { 
+    .InsuranceField label {
+        font-family: 'Montserrat';
+        font-size: 2vw;
+    }
+
+    .InsuranceField input {
+        font-size: 2vw;
+    }
+}
+
+.InsuranceField {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+}
+
+.InsuranceProvider {
+    width : 80%
+}
+
+.InsuranceGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.InsuranceGridContainer {
+    height: 70%;
+    overflow-y: hidden;
+}
+
+.SubmitInsurance {
+    background: linear-gradient(to bottom, red 0%, darkred 100%);
+    color: white;
+    width: 7vw;
+    font-size: 1.2vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+/* 
+    ##############################
+    ##############################
+    Appointment Date Selector
+    ##############################
+    ##############################
+*/
+
+.SelectAppointmentDateContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+}
+
+/* 
+    ##############################
+    ##############################
+    Review And Confirm
+    ##############################
+    ##############################
+*/
+
+    .Review {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+        place-items: center;
+        width: 95%;
+        height: 70%;
+    }
+
+    .ReviewItem {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 25vw;
+        height: 30vw;
+        font-size: 3vw;
+        text-align: center;
+    }
+
+    .Validator {
+        color: red;
+        height: 10vw;
+    }
+
+    .ConfirmButton {
+        background: linear-gradient(to bottom, red 0%, darkred 100%);
+        color: white;
+        width: 20vw;
+        height: 8vw;
+        font-size: 3vw;
+        margin-top: .5vw;
+        margin-bottom: .5vw;
+    }
+}
+ /* Scroll container with bottom fade */
+.fade-scroll {
+  position: relative;
+  overflow-y: auto;
+
+  /* how much space you want for the fade */
+  --fade-height: 48px;
+
+  /* Fade only at the bottom */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) calc(100% - var(--fade-height)),
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) calc(100% - var(--fade-height)),
+    rgba(0,0,0,0) 100%
+  );
+}

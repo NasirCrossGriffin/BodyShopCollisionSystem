@@ -1,0 +1,19 @@
+GET  http://localhost:4003/api/bodyshop/
+Content-Type: application/json
+
+###
+
+POST http://localhost:4003/api/admin/register
+Content-Type: application/json
+
+{
+    "username" : "NasirGriffin",
+    "password" : "SuperNovaEdge1998%",
+    "bodyshop" : "6998c92ad28d21cab8818898",
+    "key" : "6a63913068f5250bf093f3c1e15693fab0260be78594d4ece22af07a950a98dc"
+}
+
+###
+
+GET http://localhost:4003/api/estimatequery/test
+Content-Type: application/json
