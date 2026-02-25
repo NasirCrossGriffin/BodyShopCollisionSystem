@@ -4,7 +4,7 @@ cd /portfolio/BodyShopCollisionSystem || {
         exit 1
 }
 
-sudo git pull origin main || {
+sudo git pull origin master || {
         echo "Unable to pull latest update."
         exit 1
 }
