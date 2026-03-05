@@ -423,6 +423,10 @@
         ##############################
     */
 
+    .InsuranceInformation {
+        justify-content: flex-start;
+    }
+
     .InsuranceFields {
         display: flex;
         flex-direction: row;
@@ -451,6 +455,23 @@
         align-items: center;
         width: 45%;
         height: 100%;
+    }
+
+    .InsuranceInquiry {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .InquiryButton {
+        background: linear-gradient(to bottom, red 0%, darkred 100%);
+        color: white;
+        width: 7vw;
+        font-size: 1.2vw;
+        margin-left: 2vw;
+        margin-right: 2vw;
     }
 
     .InsuranceProvider {
@@ -593,12 +614,12 @@
 }
 
 .Continue {
-    top : 2vw;
+    top : 7vw;
     right: 2vw;
 }
 
 .Back {
-    top : 2vw;
+    top : 7vw;
     left: 2vw;
 }
 
@@ -607,7 +628,7 @@
     transform: translateX(-50%);
     left : 50%;
     top: 0;
-    height : 5%;
+    height : 10%;
     pointer-events: none;
 }
 
@@ -1036,6 +1057,11 @@
     ##############################
 */
 
+.InsuranceInformation {
+    justify-content: flex-start;
+}
+
+
 .InsuranceFields {
     display: flex;
     flex-direction: column;
@@ -1043,6 +1069,23 @@
     justify-content: space-between;
     width: 100%;
     height: 40%;
+}
+
+.InsuranceInquiry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.InquiryButton {
+    background: linear-gradient(to bottom, red 0%, darkred 100%);
+    color: white;
+    width: 20vw;
+    font-size: 3vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
 }
 
 .InsuranceField input {

@@ -53,15 +53,16 @@ function IngestionPage() {
     const [vehicleModelValidator, setVehicleModelValidator] = useState<string>('');
     const [vehicleYearValidator, setVehicleYearValidator] = useState<string>('');
 
+    const fileInputRef = useRef<HTMLInputElement | null>(null);
     const [insuranceProviderValidator, setInsuranceProviderValidator] = useState<string>('');
     const [policyNumberValidator, setPolicyNumberValidator] = useState<string>('');
     const [user, SetUser] = useState<any>();
-    const fileInputRef = useRef<HTMLInputElement | null>(null);
     const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
     const [previewUrls, setPreviewUrls] = useState<string[]>([]);
     const [description, setDescription] = useState<string>('');
     const [isoString, setIsoString] = useState<string>("");
-
+    const [usingInsurance, setUsingInsurance] = useState<Boolean | null>(null);
+    const [estimate, setEstimate] = useState<any>(null);
 
     useEffect(() => {
         const getBodyShop = async () => {
@@ -88,6 +89,14 @@ function IngestionPage() {
             URL.revokeObjectURL(tempUrl);
         };
     }, [uploadedFiles]);
+
+    useEffect(() => {
+        if (user !== null) createNewInquiry();
+    }, [user])
+
+    useEffect(() => {
+        if (estimate !== null) createContact();
+    }, [estimate])
 
     const COMMON_US_VEHICLE_MAKES : string[] = [
         "Toyota",
@@ -140,8 +149,8 @@ function IngestionPage() {
             ? (/^\d{4}$/.test(value.trim()) && Number(value.trim()) >= 1900 && Number(value.trim()) <= 2100 ? '' : 'Enter a valid year')
             : 'Vehicle year is required';
 
-    const validateInsuranceProvider = (value: string) => value.trim().length > 0 ? '' : 'Insurance provider is required';
-    const validatePolicyNumber = (value: string) => value.trim().length > 0 ? '' : 'Policy number is required';
+    const validateInsuranceProvider = (value: string) => usingInsurance ? value.trim().length > 0 ? '' : 'Insurance provider is required' : '';
+    const validatePolicyNumber = (value: string) => usingInsurance ? value.trim().length > 0 ? '' : 'Policy number is required' : '';
     const validateAppointment = (value: string) => value.trim().length > 0 ? '' : 'Appointment date/time is required';
 
     const formatIsoString = (value: string) => {
@@ -211,6 +220,8 @@ function IngestionPage() {
         console.log(newUser)
 
         SetUser(newUser);
+
+        return;
     }
 
 
@@ -234,45 +245,37 @@ function IngestionPage() {
     async function createNewInquiry() {
         if (!(bodyShop && user)) return;
 
-        const protoInquiry = {
-            bodyShop : bodyShop._id,
-            user : user._id,
-            vehicleYear : Number(vehicleYear),
-            make : vehicleMake,
-            model : vehicleModel, 
-            insurerName : insuranceProvider,
-            policyNumber : policyNumber,
-            damageDescription : description,
-            appointmentDateTime : isoString,
+        console.log("BodyShop and User present")
+
+        if (usingInsurance === null) setUsingInsurance(false);
+            
+        if (usingInsurance !== null) {
+            const protoInquiry = {
+                bodyShop : bodyShop._id,
+                user : user._id,
+                vehicleYear : Number(vehicleYear),
+                make : vehicleMake,
+                model : vehicleModel, 
+                insurerName : insuranceProvider,
+                policyNumber : policyNumber,
+                damageDescription : description,
+                usingInsurance : usingInsurance,
+                appointmentDateTime : isoString,
+            }
+            
+            console.log(uploadedFiles)
+
+            console.log(protoInquiry)
+
+            const newEstimate = await createEstimateQuery(protoInquiry);
+
+            if (!(newEstimate)) return;
+
+            await uploadDamagePhotos(newEstimate._id)
+
+            setEstimate(newEstimate);
         }
-
-        console.log(uploadedFiles)
-
-        console.log(protoInquiry)
-
-        const newEstimate = await createEstimateQuery(protoInquiry);
-
-        if (!(newEstimate)) return;
-
-        await uploadDamagePhotos(newEstimate._id)
     }
-
-    /*async function autofill() {
-        setFirstName("Nasir")
-        setLastName("Griffin")
-        setEmail("nasircrossgriffin@gmail.com")
-        setPhoneNumber("6098059113")
-
-        await createNewUser()
-
-        setVehicleYear("2026")
-        setVehicleMake("Mercedes-Benz")
-        setVehicleModel("S-Class"), 
-        setInsuranceProvider("Progressive")
-        setPolicyNumber("C57534734947383")
-        setDescription("I was in a car accident")
-        setIsoString("2026-02-23T06:35:57+00:00")
-    }*/
 
     async function uploadDamagePhotos(estimateid : string) {
         console.log(estimateid);
@@ -306,12 +309,12 @@ function IngestionPage() {
 
         console.log(validated);
 
-        if (!(validated)) return
+        if (!(validated)) return;
 
         await createNewUser()
-            
-        await createNewInquiry();
+    }
 
+    async function createContact() {
         const contactCompleted = await newContact({
             email : email,
             firstname : firstName,
@@ -320,7 +323,7 @@ function IngestionPage() {
             model : vehicleModel,
             year : vehicleYear,
             appointmentDateTime : formatIsoString(isoString),
-            bodyshop : bodyShop.name
+            bodyshop : bodyShop._id
         })
 
         console.log(contactCompleted)
@@ -552,7 +555,15 @@ function IngestionPage() {
                         <div className='InsuranceInformation fade-in-slide-up'>
                             <h1>Lets get your insurance information</h1>
                             
-                            <div className='InsuranceProvider'>
+                            <div className='InsuranceInquiry'>
+                                <h2>Will you be using Insurance</h2>
+                                <div className='InquiryButtons'>
+                                    <button className='InquiryButton' onClick={() => {setUsingInsurance(true)}}>Yes</button>
+                                    <button className='InquiryButton' onClick={() => {setUsingInsurance(false)}}>No</button>
+                                </div>
+                            </div>
+
+                            {usingInsurance ? <div className='InsuranceProvider fade-in-slide-up'>
                                 <h2>Select a provider below or enter manually</h2>
 
                                 <div className='InsuranceFields'>
@@ -596,7 +607,7 @@ function IngestionPage() {
                                         }
                                     </div>
                                 </div>
-                            </div>   
+                            </div> : null}  
                         </div>
                     : null
                 }

@@ -25,7 +25,11 @@ function AdminLogin() {
     const navigate = useNavigate();
 
     const handleLogin = async () => {
+        console.log("entered")
+
         if (!(bodyShop)) return
+
+        console.log("there was indeed a bodyshop")
 
         const loginData = {
             username : username,
@@ -33,14 +37,20 @@ function AdminLogin() {
             autobody : bodyShop._id
         }
 
-        try {
-        const authenticate = await authenticateAdmin(loginData);
+        console.log(loginData);
 
-        if (authenticate) {
-            console.log("Success")
-            navigate(`/${bodyShop.name}/admin`, { replace: true });
-        }
+        try {
+            const authenticate = await authenticateAdmin(loginData);
+
+            console.log("This part of the code was reached")
+            console.log(authenticate);
+
+            if (authenticate) {
+                console.log("Success")
+                navigate(`/${bodyShop.name}/admin`, { replace: true });
+            }
         } catch(err) {
+            console.log("try failed")
             console.log(err)
         return
         }

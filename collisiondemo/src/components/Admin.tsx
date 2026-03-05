@@ -5,12 +5,15 @@ import { check } from './middleware/admin.ts';
 import { getBodyShopByName } from './middleware/bodyshop.ts';
 import { getEstimateQueriesByBodyshop } from './middleware/estimatequery.ts';
 import { getUserById } from './middleware/user.ts';
+import ViewEstimate from './ViewEstimate.tsx';
 
 function Admin() {
     const [bodyShop, setBodyShop] = useState<any>(null);
     const [estimates, setEstimates] = useState<any>(null);
     const [users, setUsers] = useState<any>(null);
     const [isAdmin, setIsAdmin] = useState<Boolean>(false);
+    const [selectedEstimate, setSelectedEstimate] = useState(null);
+    const [viewEstimate, setViewEstimate] = useState<Boolean>(false);
     const { autobody } = useParams();
 
     useEffect(() => {
@@ -88,10 +91,16 @@ function Admin() {
         });
     };
 
+    const clickHandler = (index : number) => {
+        setSelectedEstimate(estimates[index]);
+        setViewEstimate(true);
+    }
+
     const navigate = useNavigate();
 
     return (
         <>
+            {viewEstimate ? <ViewEstimate estimate={selectedEstimate} setViewEstimate={setViewEstimate} bodyShop={bodyShop} /> : null}
             <div className='AdminDashboard'>
                 {bodyShop ? <div className='Logo'>
                     <img src={bodyShop.logo} />
@@ -100,16 +109,13 @@ function Admin() {
                 <div className='EstimateContainer'>
                     {
                         estimates && estimates.length > 0 && users && users.length > 0 ? estimates.map((estimate : any, index : number) => (
-                            <div className='Estimate'>
+                            <div className='Estimate' onClick={() => {clickHandler(index)}}>
                                 <p>{formatIsoString(estimate.createdAt)}</p>
                                 <p>{users[index].firstName + " " + users[index].lastName}</p>
                                 <p>{estimate.make}</p>
                                 <p>{estimate.model}</p>
                                 <p>{estimate.vehicleYear}</p>
-                                <p>{estimate.insurerName}</p>
-                                <p>{estimate.policyNumber}</p>
-                                <p>{formatIsoString(estimate.appointmentDateTime)}</p>
-
+                                {estimate.usingInsurance ? <p>{estimate.insurerName}</p> : <p>Out of Pocket</p>}
                             </div>                     
                         )) : null
                     }

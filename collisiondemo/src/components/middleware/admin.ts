@@ -18,7 +18,9 @@ export type AdminAuthResponse = {
 export async function authenticateAdmin(
   creds: AdminAuthRequest
 ): Promise<AdminAuthResponse | null> {
+  console.log("entered")
   try {
+    console.log("try entered")
     const response = await fetch(`${BASE_URL}/api/admin/autheticate`, {
       headers: { "content-type": "application/json" },
       method: "POST",
@@ -28,6 +30,7 @@ export async function authenticateAdmin(
 
     if (response.ok) {
       const admin = await response.json();
+      console.log(admin)
       return admin;
     } else {
       return null;

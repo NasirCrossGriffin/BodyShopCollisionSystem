@@ -28,7 +28,7 @@ function Gratitude() {
 
                 <div className='GratitudeContainer fade-in-slide-up'>
                     <h1>Thank You!</h1> 
-                    {bodyShop ? <h2>{bodyShop.name} has received your request.</h2> : null}
+                    {bodyShop ? <h2>{bodyShop.displayName} has received your request.</h2> : null}
                     <h2>Please check your email.</h2>
                 </div>
             </div>

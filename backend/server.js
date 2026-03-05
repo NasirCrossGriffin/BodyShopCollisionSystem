@@ -84,7 +84,7 @@ app.use('/api/user', require('./routes/user'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/estimatequery', require('./routes/estimatequery'));
 app.use('/api/estimatephoto', require('./routes/estimatephoto'));
-app.use('/api/estimates', require('./routes/estimate'));
+app.use('/api/estimate', require('./routes/estimate'));
 app.use('/api/s3', require('./routes/upload'));
 
 

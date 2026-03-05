@@ -2,7 +2,17 @@ const mongoose = require('mongoose');
 
 const BodyShopSchema = new mongoose.Schema(
   {
+    displayName: {
+      type: String,
+      required: true,
+      trim: true
+    },
     name: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    email: {
       type: String,
       required: true,
       trim: true
@@ -10,7 +20,7 @@ const BodyShopSchema = new mongoose.Schema(
     logo: {
       type: String, // URL or file path
       required: false
-    }
+    },
   },
   {
     timestamps: true

@@ -43,7 +43,16 @@ router.post('/autheticate', async (req, res) => {
     console.log(password);
     console.log(autobody);
 
-    const admin = await Admin.findOne({username : username});
+    const admin = await Admin.findOne({
+      username : username,
+      bodyShop : autobody
+    });
+
+    console.log(admin);
+
+    if (!admin) {
+      return res.status(401).json("Incorrect credentials");
+    }
 
     console.log(admin);
 

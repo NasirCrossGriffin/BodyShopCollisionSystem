@@ -38,6 +38,11 @@ const EstimateQuerySchema = new mongoose.Schema(
     },
 
     // Insurance
+    usingInsurance: {
+      type: Boolean,
+      required: true
+    },
+
     insurerName: {
       type: String,
       trim: true

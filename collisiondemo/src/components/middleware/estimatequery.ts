@@ -9,6 +9,7 @@ export type EstimateQuery = {
   vehicleYear?: number;
   make: string;
   model: string;
+  usingInsurance: Boolean;
   insurerName?: string;
   policyNumber?: string;
   damageDescription: string;

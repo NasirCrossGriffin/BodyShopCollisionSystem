@@ -26,3 +26,28 @@ export const newContact : any = async (contact : Object) => {
 
     
 }
+
+export const createEstimateContact : any = async (contact : Object) => {
+    console.log(contact)
+
+    try {
+        const response = await fetch(`${BASE_URL}/api/contact/estimate/send`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                },
+                body: JSON.stringify(contact),
+                credentials: 'include',
+        });
+
+        if (response.ok) {
+            return await response.json();
+        } else {
+            console.log(await response.status);
+            throw new Error("Contact unsuccessful");
+        }
+    } catch(err) {
+        throw new Error("Contact unsuccessful");
+    }
+}

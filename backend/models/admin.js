@@ -5,7 +5,6 @@ const AdminSchema = new mongoose.Schema(
     username: {
       type: String,
       required: true,
-      unique: true,
       trim: true,
       lowercase: true
     },
@@ -23,5 +22,8 @@ const AdminSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+// compound unique constraint
+AdminSchema.index({ username: 1, bodyShop: 1 }, { unique: true });
 
 module.exports = mongoose.model('Admin', AdminSchema);
