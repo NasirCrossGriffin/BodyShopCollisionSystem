@@ -10,6 +10,8 @@ import { createEstimateQuery } from './middleware/estimatequery';
 import { newContact } from './middleware/contact';
 
 function IngestionPage() {
+    const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_BASE_URL : "";
+
     const { autobody } = useParams();
     const navigate = useNavigate();
 
@@ -452,7 +454,7 @@ function IngestionPage() {
                                                             onClick={() => setVehicleMake(make)}
                                                         >
                                                             <div>
-                                                                <img src={'/' + COMMON_US_VEHICLE_MAKES[index] + '.png'}/>
+                                                                <img src={BASE_URL + '/' + COMMON_US_VEHICLE_MAKES[index] + '.png'}/>
                                                             </div>
                                                         </button>
                                                         
@@ -533,7 +535,7 @@ function IngestionPage() {
                                 />
 
                                 <button className='UploadButton' onClick={handleUploadButtonClick}>
-                                    <img src='/upload.png' />
+                                    <img src={BASE_URL + '/upload.png'} />
                                 </button>
                                 
                                 <div className='UploadedPhotosContainer fade-scroll'> 
@@ -599,7 +601,7 @@ function IngestionPage() {
                                                     onClick={() => setInsuranceProvider(provider)}
                                                 >
                                                     <div>
-                                                        <img src={'/' + TOP_AUTO_INSURANCE_PROVIDERS[index] + '.png'}/>
+                                                        <img src={BASE_URL + '/' + TOP_AUTO_INSURANCE_PROVIDERS[index] + '.png'}/>
                                                     </div>
                                                 </button>
                                                 

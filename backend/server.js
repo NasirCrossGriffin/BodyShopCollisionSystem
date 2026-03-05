@@ -78,14 +78,14 @@ app.use(
 
 app.use(express.json());
 
-app.use('/api/bodyshop', require('./routes/bodyshop'));
-app.use('/api/contact', require('./routes/contact'));
-app.use('/api/user', require('./routes/user'));
-app.use('/api/admin', require('./routes/admin'));
-app.use('/api/estimatequery', require('./routes/estimatequery'));
-app.use('/api/estimatephoto', require('./routes/estimatephoto'));
-app.use('/api/estimate', require('./routes/estimate'));
-app.use('/api/s3', require('./routes/upload'));
+app.use(`${process.env.BASE_URL}/api/bodyshop`, require('./routes/bodyshop'));
+app.use(`${process.env.BASE_URL}/api/contact`, require('./routes/contact'));
+app.use(`${process.env.BASE_URL}/api/user`, require('./routes/user'));
+app.use(`${process.env.BASE_URL}/api/admin`, require('./routes/admin'));
+app.use(`${process.env.BASE_URL}/api/estimatequery`, require('./routes/estimatequery'));
+app.use(`${process.env.BASE_URL}/api/estimatephoto`, require('./routes/estimatephoto'));
+app.use(`${process.env.BASE_URL}/api/estimate`, require('./routes/estimate'));
+app.use(`${process.env.BASE_URL}/api/s3`, require('./routes/upload'));
 
 
 // Serve frontend build
