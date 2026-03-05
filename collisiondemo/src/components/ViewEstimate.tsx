@@ -191,7 +191,7 @@ function ViewEstimate({
 
                         <div className='EstimatePhotosContainer'>
                             {estimate && estimatePhotos.length > 0 ? <div className='EstimatePhotos'>
-                                {estimatePhotos.map((estimatePhoto, index) => (<div className='EstimatePhoto'>
+                                {estimatePhotos.map((estimatePhoto, index) => (<div className='EstimatePhoto' key={index}>
                                     <img src={estimatePhoto.url}/>
                                 </div>))}
                             </div> : null}
