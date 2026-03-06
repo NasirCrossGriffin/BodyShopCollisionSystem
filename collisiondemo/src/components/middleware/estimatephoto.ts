@@ -1,7 +1,7 @@
 // estimatePhoto.middleware.ts
 // Same style as your previous middleware functions
 
-const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_BASE_URL : "";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export type EstimatePhoto = {
   estimateQuery: string;

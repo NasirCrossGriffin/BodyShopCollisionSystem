@@ -1,5 +1,5 @@
 //Upload to S3
-const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_BASE_URL : "";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const uploadToS3 : any = async (file : File) => {
     console.log("Function entered")

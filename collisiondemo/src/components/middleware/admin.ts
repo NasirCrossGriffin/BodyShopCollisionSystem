@@ -1,7 +1,7 @@
 // admin.middleware.ts
 // Middleware method for POST /api/admin/autheticate (spelled as in your route)
 
-const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_BASE_URL : "";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export type AdminAuthRequest = {
   username: string;
