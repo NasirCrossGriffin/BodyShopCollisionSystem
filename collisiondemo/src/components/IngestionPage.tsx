@@ -454,7 +454,7 @@ function IngestionPage() {
                                                             onClick={() => setVehicleMake(make)}
                                                         >
                                                             <div>
-                                                                <img src={BASE_URL + '/' + COMMON_US_VEHICLE_MAKES[index] + '.png'}/>
+                                                                <img src={BASE_URL + '/images' + '/' + COMMON_US_VEHICLE_MAKES[index] + '.png'}/>
                                                             </div>
                                                         </button>
                                                         
@@ -535,7 +535,7 @@ function IngestionPage() {
                                 />
 
                                 <button className='UploadButton' onClick={handleUploadButtonClick}>
-                                    <img src={BASE_URL + '/upload.png'} />
+                                    <img src={BASE_URL + '/images' + '/upload.png'} />
                                 </button>
                                 
                                 <div className='UploadedPhotosContainer fade-scroll'> 
@@ -601,7 +601,7 @@ function IngestionPage() {
                                                     onClick={() => setInsuranceProvider(provider)}
                                                 >
                                                     <div>
-                                                        <img src={BASE_URL + '/' + TOP_AUTO_INSURANCE_PROVIDERS[index] + '.png'}/>
+                                                        <img src={BASE_URL + '/images' + '/' + TOP_AUTO_INSURANCE_PROVIDERS[index] + '.png'}/>
                                                     </div>
                                                 </button>
                                                 
